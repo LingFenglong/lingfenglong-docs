@@ -24,16 +24,10 @@ pipeline {
             }
         }
 
-//         stage('创建Nginx环境') {
-//             steps {
-//                 sh 'whereis nginx'
-//             }
-//         }
-
-        // 这里的hello2 是我加的，就是说明，这是stages下的第二个任务 ,就是在pipeline中加单行注释 用 // 就行
-        stage('Hello2') {
+        stage('部署') {
             steps {
-                echo 'Hello World'
+                sh 'rm -rf /user/share/nginx/html/*'
+                sh 'cp docs/.vitepress/dist/* /user/share/nginx/html'
             }
         }
     }
