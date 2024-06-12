@@ -20,14 +20,9 @@ pipeline {
                 docker { image 'm.daocloud.io/docker.io/library/nginx' }
             }
             steps {
-                sh 'whereis nginx'
-            }
-        }
-
-        stage('部署') {
-            steps {
                 sh 'rm -rf /user/share/nginx/html/*'
                 sh 'cp docs/.vitepress/dist/* /user/share/nginx/html'
+                sh 'whereis nginx'
             }
         }
     }
