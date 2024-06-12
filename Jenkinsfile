@@ -3,13 +3,15 @@ pipeline {
 
     stages {
         stage('构建') {
-            withDockerContainer('m.daocloud.io/docker.io/library/node') {
-                sh 'ls'
-                sh 'node -v'
-                sh 'npm -v'
-                sh 'npm config set registry https://registry.npmmirror.com'
-                sh 'npm install'
-                sh 'npm run docs:build'
+            steps {
+                withDockerContainer('m.daocloud.io/docker.io/library/node') {
+                    sh 'ls'
+                    sh 'node -v'
+                    sh 'npm -v'
+                    sh 'npm config set registry https://registry.npmmirror.com'
+                    sh 'npm install'
+                    sh 'npm run docs:build'
+                }
             }
         }
 
