@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('创建Nodejs环境') {
             agent {
-                docker { image 'gyx94p42.mirror.aliyuncs.com/library/node:22.3-slim' }
+                docker { image 'm.daocloud.io/docker.io/library/node:22.3-slim' }
             }
             steps {
                 sh 'node -v'
@@ -17,7 +17,7 @@ pipeline {
 
         stage('创建Nginx环境') {
             agent {
-                docker { image 'gyx94p42.mirror.aliyuncs.com/library/nginx' }
+                docker { image 'm.daocloud.io/docker.io/library/nginx' }
             }
             steps {
                 sh 'whereis nginx'
