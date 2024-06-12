@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('创建环境') {
             agent {
-                docker { image 'node' }
+                docker { image 'gyx94p42.mirror.aliyuncs.com/node' }
             }
             steps {
                 sh 'node -v'
