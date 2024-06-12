@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('创建Nodejs环境') {
             agent {
-                docker { image 'gyx94p42.mirror.aliyuncs.com/library/node' }
+                docker { image 'gyx94p42.mirror.aliyuncs.com/library/node:slim' }
             }
             steps {
                 sh 'node -v'
@@ -22,6 +22,13 @@ pipeline {
                 sh 'whereis nginx'
             }
         }
+
+        stage('创建Nginx环境') {
+            steps {
+                sh 'whereis nginx'
+            }
+        }
+
         // 这里的hello2 是我加的，就是说明，这是stages下的第二个任务 ,就是在pipeline中加单行注释 用 // 就行
         stage('Hello2') {
             steps {
