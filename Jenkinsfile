@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('创建环境') {
             agent {
-                docker { image 'gyx94p42.mirror.aliyuncs.com/node' }
+                docker { image 'm.daocloud.io/docker.io/node' }
+                docker { image 'm.daocloud.io/docker.io/nginx' }
             }
             steps {
                 sh 'node -v'
