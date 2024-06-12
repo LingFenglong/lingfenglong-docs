@@ -17,7 +17,7 @@ pipeline {
 
         stage('制品') {
             steps {
-                dir('.vitepress/dist') {
+                dir('docs/.vitepress/dist') {
                     sh 'ls -al'
                     sh 'tar -zcvf docs.tar.gz *'
                     archiveArtifacts artifacts: 'docs.tar.gz',
@@ -31,7 +31,7 @@ pipeline {
 
         stage('部署') {
             steps {
-                dir('.vitepress/dist') {
+                dir('docs/.vitepress/dist') {
                     sh 'ls -al'
                     writeFile file: 'Dockerfile',
                               text: '''FROM m.daocloud.io/docker.io/library/nginx
