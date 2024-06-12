@@ -9,6 +9,7 @@ pipeline {
             steps {
                 sh 'node -v'
                 sh 'npm -v'
+                sh 'npm config set registry https://registry.npmmirror.com'
                 sh 'npm install'
                 sh 'ls -l'
             }
@@ -23,11 +24,11 @@ pipeline {
             }
         }
 
-        stage('创建Nginx环境') {
-            steps {
-                sh 'whereis nginx'
-            }
-        }
+//         stage('创建Nginx环境') {
+//             steps {
+//                 sh 'whereis nginx'
+//             }
+//         }
 
         // 这里的hello2 是我加的，就是说明，这是stages下的第二个任务 ,就是在pipeline中加单行注释 用 // 就行
         stage('Hello2') {
