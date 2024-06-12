@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('构建') {
-            withDockerContainer('node') {
+            withDockerContainer('m.daocloud.io/docker.io/library/node') {
                 sh 'ls'
                 sh 'node -v'
                 sh 'npm -v'
@@ -32,7 +32,7 @@ pipeline {
                 dir('.vitepress/dist') {
                     sh 'ls -al'
                     writeFile file: 'Dockerfile',
-                              text: '''FROM nginx
+                              text: '''FROM m.daocloud.io/docker.io/library/nginx
 ADD docs.tar.gz /usr/share/nginx/html/'''
                     sh 'cat Dockerfile'
                     sh 'docker build -f Dockerfile -t docs-app:latest .'
