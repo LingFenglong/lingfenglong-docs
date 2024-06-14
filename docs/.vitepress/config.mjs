@@ -22,7 +22,8 @@ export default defineConfig({
         text: '笔记',
         items: [
           { text: 'Java', link: '/server-side/Java' },
-          { text: 'Spring', link: '/server-side/Spring' }
+          { text: 'Spring', link: '/server-side/Spring' },
+          { text: 'Nginx', link: '/server-side/Nginx' }
         ]
       }
     ],
